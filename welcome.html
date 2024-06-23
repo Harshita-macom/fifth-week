@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<script>
+    function delatedetails(){
+        localStorage.clear();
+    }
+    function showdetails(){
+        var mail = localStorage.getItem("email");
+        var user = localStorage.getItem("first");
+        document.getElementById("data").innerHTML = "welcome " + user;
+    }
+</script>
+<body onload = showdetails()>
+    <h1 id = "data">Welcome to cmrit</h1>
+    <button type = "submit" onclick="return deletedetails()">Logout</button>
+</body>
+</html>

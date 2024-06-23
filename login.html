@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <style>
+        fieldset{
+            width : "500px";
+        }
+    </style>
+</head>
+<script>
+    function loginValidate(){
+        var enteredmail = frm.mail.value;
+        var enterpwd = frm.pwd.value;
+        var coremail = localStorage.getItem("email");
+        var corpwd = localStorage.getItem("Password");
+        if(enteredmail == coremail){
+            if(enterpwd == corpwd){
+                alert("login success");
+                window.location = "/welcome";
+                return false;
+            }
+            else{
+                alert("wrong password");
+            }
+        }
+        else{
+            alert("invalid credentials");
+        }
+    }
+</script>
+<body >
+    <Center>
+    <h1>
+        login
+    </h1>
+    <div class = "container">
+        
+        <form name = "frm" onsubmit = "return loginValidate()">
+            <fieldset>
+                <table>
+                    <tr>
+                        <td>Username</td>
+                        <td><input type = "text" name = "mail" value = "" required></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type = "password" name = "pwd" value = "" required></td>
+                    </tr>
+                </table>
+                <input type = "submit" value = "login" name = "submit">
+            </fieldset>
+        </form>
+        <p>not registered? <a href = "register.html">click</a></p>
+    </Center>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        fieldset{
+            width : 500px;
+            text-align: center;
+            
+        }
+        table tr td{
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+    </style>
+    <div id = "header">
+        <h1>Registration</h1>
+    </div>
+    <div id = "content">
+    </head>
+        <script>
+            function validate(){
+                var fn = frm.first.value;
+                localStorage.setItem("FirstName", fn);
+                for(ch in fn){
+                    var x = fn.charCodeAt(x);
+                    if(x < 65 || x > 90 && x < 97 || x > 122){
+                        alert("Invalid firstname");
+                        return false;
+                    }
+                }
+                var ln = frm.last.value;
+                localStorage.setItem("LastName", ln);
+                for(ch in ln){
+                    var x = ln.charCodeAt(x);
+                    if(x < 65 || x > 90 && x < 97 || x > 122){
+                        alert("Invalid last name");
+                        return false;
+                    }
+                }
+                var phn = frm.phone.value;
+                localStorage.setItem("phoneNumber", phn);
+                var phnl = phn.length;
+                if(phnl !== 10){
+                    alert("phone number has to be exactly 10 digits");
+                    return false;
+                }
+                var p = frm.pwd.value;
+                localStorage.setItem("Password", p);
+                var pl = p.length;
+                if(pl < 8){
+                    alert("the password has to be atleast of 8 characters");
+                    return false;
+                }
+                if(pl % 2 == 1){
+                    alert("password must contain even number of characters");
+                    return false;
+                }
+                var reg = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/;
+                var mail = frm.email.value;
+                localStorage.setItem("email", mail);
+                if(reg.test(mail)){
+                    alert("registeration successfull");
+                }
+                else{
+                    alert("invalid email");
+                    return false;
+                }
+                return true;
+            }
+        </script>
+
+<div id = "container">
+<body>
+    <center>
+    <form name = "frm" action = "\login" onsubmit="return validate()">
+        <fieldset align = "center">
+            <table align = "center">
+                <tr>
+                    <td>First Name: </td>
+                    <td><input type="text" name="first" value="" size="50" required /></td>
+                </tr>
+
+                <tr>
+                    <td>Last Name: </td>
+                    <td> <input type="text" name="last" value="" size="50" required /></td>
+                </tr>
+
+                <tr>
+                    <td>Phone No: </td>
+                    <td> <input type="text" name="phone" value="" size="50" required /></td>
+                </tr>
+
+                <tr>
+                    <td>Mail id:</td>
+                    <td><input type="email" name="email" value="" size="50" required /></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>Male: <input type="radio" name="gender" value="male">
+                        Female: <input type="radio" name="gender" value="female"></td>
+                </tr>
+
+                <tr>
+                    <td>DOB :</td>
+                    <td><input type="date" name="dob" size="50" required /></td>
+                </tr>
+
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="uname" value="" size="50" required /></td>
+                </tr>
+
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="pwd" value="" size="50" required /></td>
+                </tr>
+
+                <tr>
+                    <td>Age:</td>
+                    <td><input type="text" name="age" value="" size="50" required /></td>
+                </tr>
+
+            </table>
+            <input type = "submit" value="submit" name = "submit">
+        </fieldset>
+    </form>
+    </div>
+    </center>
+</body>
+<div id = "footer">
+    Copyright © CMRIT_2024
+</div>
+</div>
+
+</html>
